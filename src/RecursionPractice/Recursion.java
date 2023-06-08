@@ -232,8 +232,30 @@ public class Recursion {
         return  downwards+right;
     }
 
-    //place tiles of size 1xm ina floor of size nxm
+    /*
+        place tiles of size 1xm in a floor of size nxm
+        n=4 m=2 then tile wll be mx2
+    */
 
+    public static int placeTiles(int n, int m){
+        // all the tiles cann only be placed horizontally ir vertically
+        if(n==m){
+            return 2;
+        }
+
+        //tile can only be placed horizontally
+        if(n<m){
+            return 1;
+        }
+
+        //vertically placed
+        int verticalPlacements= placeTiles(n-m,m);
+        //horizontal placements
+        int horPlacements= placeTiles(n-1,m);
+        return horPlacements+verticalPlacements;
+    }
+
+    //find the number of ways in which you can invite n people to you party, single or in pairs
 
     //Driver function
     public static void main(String[] args) {
@@ -265,7 +287,11 @@ public class Recursion {
         //        uniqueSubsequences("aaa",0,"",new HashSet<String>());
         //        keypadCombinations("23",0,"");
         //        permutations("abc","");
-        System.out.println(countPathsOfMaze(0, 0, 3, 3));
+        //        System.out.println(countPathsOfMaze(0, 0, 3, 3));
+
+        //        System.out.println(placeTiles(3, 4));
+
+
 
 
     }
