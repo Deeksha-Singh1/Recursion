@@ -1,5 +1,6 @@
 package RecursionPractice;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Recursion {
@@ -256,6 +257,46 @@ public class Recursion {
     }
 
     //find the number of ways in which you can invite n people to you party, single or in pairs
+    public static int callGuests(int n){
+
+        if(n<=1){
+            return 1;
+        }
+
+        //single
+        int waySingle = callGuests(n-1);
+        int wayPair = callGuests(n-2)* (n-1);
+
+        return wayPair+waySingle;
+    }
+
+    //find subsets of a set of  natural numbers
+
+    public static void printSubset(ArrayList<Integer> list){
+        System.out.print("( ");
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i) + " ");
+        }
+        System.out.print(")");
+
+        System.out.println();
+    }
+    public static void findSubsets(int n, ArrayList<Integer> subset){
+
+        if(n==0){
+            printSubset(subset);
+            return;
+        }
+
+        //added
+        subset.add(n);
+        findSubsets(n-1,subset);
+
+        //not added
+        subset.remove(subset.size()-1);
+        findSubsets(n-1,subset);
+
+    }
 
     //Driver function
     public static void main(String[] args) {
@@ -290,8 +331,9 @@ public class Recursion {
         //        System.out.println(countPathsOfMaze(0, 0, 3, 3));
 
         //        System.out.println(placeTiles(3, 4));
+//        System.out.println(callGuests(4));
 
-
+        findSubsets(3,new ArrayList<>());
 
 
     }
