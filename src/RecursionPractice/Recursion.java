@@ -293,7 +293,7 @@ public class Recursion {
         findSubsets(n-1,subset);
 
         //not added
-        subset.remove(subset.size()-1);
+        subset.remove( subset.size()-1);
         findSubsets(n-1,subset);
 
     }
