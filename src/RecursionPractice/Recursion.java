@@ -2,6 +2,7 @@ package RecursionPractice;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.stream.IntStream;
 
 public class Recursion {
 
@@ -298,6 +299,15 @@ public class Recursion {
 
     }
 
+    public static void numbers(int n){
+        if(n==0){
+            return;
+        }
+        numbers(n-1);
+        System.out.println(n);
+
+    }
+
     //Driver function
     public static void main(String[] args) {
         //      int n=7;
@@ -331,9 +341,12 @@ public class Recursion {
         //        System.out.println(countPathsOfMaze(0, 0, 3, 3));
 
         //        System.out.println(placeTiles(3, 4));
-//        System.out.println(callGuests(4));
+        //        System.out.println(callGuests(4));
 
-        findSubsets(3,new ArrayList<>());
+        //findSubsets(3,new ArrayList<>());
+        // numbers(100);
+        //print numbers from 1 to 100  using Streams
+        IntStream.range(1,101).forEach(System.out::println);
 
 
     }
